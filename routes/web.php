@@ -13,5 +13,13 @@
 
 /* /postにGETリクエストが来たらPostControllerのindexメソッドを実行 */
 Route::get('/', 'PostController@index');
-
+Route::get("/posts/create", "PostController@create");
 Route::get("/posts/{post}", "PostController@show");
+
+
+// viewのテスト用
+/*
+Route::get('/view', function () {
+    return view('/posts/create');
+});
+*/

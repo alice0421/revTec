@@ -17,4 +17,9 @@ class PostController extends Controller{
         //dd($post);
         return view("posts/show")->with(["post" => $post]);
     }
+    
+    //記事作成
+    public function create(Post $post){
+        return view("posts/create");
+    }
 }
