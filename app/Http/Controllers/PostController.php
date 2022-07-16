@@ -19,7 +19,14 @@ class PostController extends Controller{
     }
     
     //記事作成
-    public function create(Post $post){
+    public function create(){
         return view("posts/create");
+    }
+    
+    //記事投稿(DBへの保存)
+    public function store(Request $request, Post $post){
+        $input = $request['post'];
+        $post->fill($input)->save();
+        return redirect('/posts/' . $post->id);
     }
 }
