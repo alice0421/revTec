@@ -17,7 +17,7 @@ Route::get("/posts/create", "PostController@create"); //記事作成
 Route::post("/posts", "PostController@store"); //記事作成後の投稿処理
 Route::get("/posts/{post}", "PostController@show"); //記事詳細
 Route::get("/posts/{post}/edit", "PostController@edit"); //記事編集
-Route::post("/posts/{post}", "PostController@update"); //記事編集後の投稿処理
+Route::put("/posts/{post}", "PostController@update"); //記事編集後の投稿処理
 
 // viewのテスト用
 /*

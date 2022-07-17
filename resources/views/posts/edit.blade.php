@@ -11,20 +11,19 @@
         <h1 class="title">Edit View</h1>
         <form action="/posts/{{ $post->id }}" method="post">
             @csrf
-            <div class="title">
+            @method('PUT')
+            <div class="content__title">
                 <label for="title"><h2>Title</h2></label>
-                <input type="text" id="title" name="post[title]" placeholder="タイトル" value="{{old("post.title")}}"/>
-                <p class="title__error" style="color:red">{{$errors->first("post.title")}}</p>
+                <input type="text" id="title" name="post[title]" value="{{ $post->title }}"/>
             </div>
-            <div class="body">
+            <div class="content__body">
                 <label for="body"><h2>Body</h2></label>
-                <textarea id="body" name="post[body]" placeholder="今日も1日お疲れ様でした。">{{old("post.body")}}</textarea>
-                <p class="body__error" style="color:red">{{$errors->first("post.body")}}</p>
+                <textarea id="body" name="post[body]">{{ $post->body }}</textarea>
             </div>
             <input type="submit" value="保存"/>
         </form>
         <div class="back">
-            [<a href="/">back</a>]
+            [<a href="/posts/{{ $post->id }}">back</a>]
         </div>
     </body>
 </html>
