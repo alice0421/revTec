@@ -24,10 +24,22 @@ class PostController extends Controller{
         return view("posts/create");
     }
     
-    //記事投稿(DBへの保存)
+    //記事"作成"後の投稿処理(DBへの保存)
     public function store(PostRequest $request, Post $post){
         $input = $request['post'];
         $post->fill($input)->save();
+        return redirect('/posts/' . $post->id);
+    }
+    
+    //記事編集
+    public function edit(Post $post){
+        return view("posts/edit")->with(["post" => $post]);
+    }
+    
+    //記事"編集"後の投稿処理(DBへの保存)
+    public function update(PostRequest $request, Post $post){
+        $input_post = $request['post'];
+        $post->fill($input_post)->save();
         return redirect('/posts/' . $post->id);
     }
 }

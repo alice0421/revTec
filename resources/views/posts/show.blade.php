@@ -9,6 +9,9 @@
         <title>Blog</title>
     </head>
     <body>
+        <p class="edit">
+            [<a href="/posts/{{ $post->id }}/edit">edit</a>]
+        </p>
         <h1 class="title">{{ $post->title }}</h1>
         <div class="content">
             <div class="content__post">
@@ -18,7 +21,7 @@
             </div>
         </div>
         <div class="fotter">
-            <a href="/">back</a>
+            [<a href="/">back</a>]
         </div>
     </body>
 </html>
