@@ -42,4 +42,10 @@ class PostController extends Controller{
         $post->fill($input_post)->save();
         return redirect('/posts/' . $post->id);
     }
+    
+    //記事削除
+    public function delete(Post $post){
+        $post->delete(); //論理削除(deleted_at)
+        return redirect('/');
+    }
 }
