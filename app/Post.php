@@ -3,9 +3,13 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Post extends Model
 {
+  //論理削除のための定義
+  use SoftDeletes;
+  
   //fill関数のためのプロパティ設定
   protected $fillable=[
     "title",
