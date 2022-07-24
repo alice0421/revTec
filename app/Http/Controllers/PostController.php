@@ -27,7 +27,10 @@ class PostController extends Controller{
     //記事"作成"後の投稿処理(DBへの保存)
     public function store(PostRequest $request, Post $post){
         $input = $request['post'];
+        // $post->fill($input)->save();
+        \DB::enableQueryLog();
         $post->fill($input)->save();
+        dd(\DB::getQueryLog());
         return redirect('/posts/' . $post->id);
     }
     
